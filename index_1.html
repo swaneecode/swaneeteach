@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ms. Swanson's 6th Grade ELA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Jost:wght@300;400;500;600&family=Marcellus&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#eef6f3;
+    --cream-deep:#dbeae4;
+    --clay:#3d7d8a;
+    --clay-deep:#265a68;
+    --sage:#7fab8e;
+    --sage-deep:#5f8a71;
+    --rose:#7fb2c9;
+    --gold:#4a8a7a;
+    --ink:#20383a;
+    --ink-soft:#587472;
+    --line:#c5ddd6;
+    --focus:#2c6b78;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream-deep);
+    color:var(--ink);
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    font-size:16.5px;
+    line-height:1.65;
+  }
+  a{color:var(--focus);}
+  :focus-visible{outline:2px solid var(--focus);outline-offset:3px;}
+
+  .cover{
+    position:relative;
+    max-width:760px;
+    margin:2.5rem auto 0;
+    padding:3.4rem 2rem 5.5rem;
+    text-align:center;
+    background:linear-gradient(160deg,var(--clay) 0%, var(--clay-deep) 78%);
+    border-radius:220px 220px 18px 18px;
+    color:#fbf3e8;
+    overflow:hidden;
+  }
+  .cover::before{
+    content:"";
+    position:absolute;
+    top:22px; left:22px; right:22px; bottom:22px;
+    border:1px solid rgba(251,243,232,0.35);
+    border-radius:190px 190px 10px 10px;
+    pointer-events:none;
+  }
+  .sun{
+    width:54px; height:54px;
+    margin:0 auto 1.1rem;
+    opacity:0.92;
+  }
+  .lang-toggle{
+    position:absolute;
+    top:1.4rem; right:1.4rem;
+    display:flex;
+    background:rgba(251,243,232,0.14);
+    border:1px solid rgba(251,243,232,0.4);
+    border-radius:999px;
+    padding:3px;
+    font-family:'Marcellus',serif;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+  }
+  .lang-toggle button{
+    border:none;
+    background:transparent;
+    color:#fbf3e8;
+    padding:0.35rem 0.6rem;
+    border-radius:999px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .lang-toggle button.active{
+    background:#fbf3e8;
+    color:var(--clay-deep);
+  }
+  .eyebrow{
+    font-family:'Marcellus',serif;
+    font-size:0.76rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    opacity:0.85;
+  }
+  .cover h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-style:normal;
+    font-size:2.5rem;
+    margin:0.5rem 0 0.7rem;
+    line-height:1.15;
+  }
+  .cover .sub{
+    max-width:420px;
+    margin:0 auto;
+    font-size:1rem;
+    opacity:0.92;
+    font-weight:300;
+  }
+  .branch{
+    display:block;
+    width:220px;
+    margin:1.4rem auto 0;
+    opacity:0.8;
+  }
+
+  nav.tabs{
+    display:flex;
+    justify-content:center;
+    gap:0.6rem;
+    max-width:760px;
+    margin:-2.6rem auto 0;
+    padding:0 1.2rem;
+    position:relative;
+    z-index:4;
+    flex-wrap:wrap;
+  }
+  nav.tabs button{
+    font-family:'Marcellus',serif;
+    font-size:0.82rem;
+    letter-spacing:0.03em;
+    border:1px solid var(--line);
+    cursor:pointer;
+    color:var(--ink-soft);
+    background:#fffdf8;
+    padding:0.65rem 1.3rem;
+    border-radius:999px;
+    box-shadow:0 6px 14px rgba(30,80,80,0.12);
+    transition:transform 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+  nav.tabs button:hover{transform:translateY(-2px);}
+  nav.tabs button.active{
+    background:var(--sage);
+    border-color:var(--sage-deep);
+    color:#fffdf8;
+  }
+
+  main{
+    max-width:760px;
+    margin:2.4rem auto 0;
+    background:var(--cream);
+    border-radius:18px;
+    box-shadow:0 14px 34px rgba(30,80,80,0.14);
+    padding:2.6rem 2.2rem 3rem;
+    position:relative;
+  }
+  main::before{
+    content:"";
+    position:absolute;
+    top:0; left:2.2rem; right:2.2rem;
+    height:1px;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 8px, transparent 8px 16px);
+  }
+  section{display:none; animation:fadeIn 0.3s ease;}
+  section.active{display:block;}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
+
+  h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.55rem;
+    margin:0 0 1.3rem;
+    display:flex;
+    align-items:center;
+    gap:0.55rem;
+    color:var(--clay-deep);
+  }
+  h2 svg{width:20px;height:20px;flex:none;}
+
+  .card{
+    background:#fffdf8;
+    border:1px solid var(--line);
+    border-top:3px solid var(--rose);
+    border-radius:10px;
+    padding:1.1rem 1.25rem;
+    margin-bottom:1.1rem;
+    box-shadow:0 3px 10px rgba(30,80,80,0.06);
+  }
+  .card .meta{
+    font-family:'Marcellus',serif;
+    font-size:0.72rem;
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:0.4rem;
+  }
+  .skill-banner{
+    background:#e2f0ec;
+    border:1px solid var(--gold);
+    border-radius:10px;
+    padding:1rem 1.25rem;
+    margin-bottom:1.4rem;
+  }
+  .skill-banner .meta{font-family:'Marcellus',serif; font-size:0.72rem; color:var(--clay-deep); text-transform:uppercase; letter-spacing:0.08em;}
+
+  table{width:100%; border-collapse:collapse; margin-bottom:1.6rem;}
+  th,td{
+    text-align:left;
+    padding:0.65rem 0.65rem;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+    font-size:0.95rem;
+  }
+  th{
+    font-family:'Marcellus',serif;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  ul.resources{list-style:none; margin:0; padding:0;}
+  ul.resources li{
+    display:flex; align-items:baseline; gap:0.7rem;
+    padding:0.85rem 0.15rem;
+    border-bottom:1px dashed var(--line);
+  }
+  ul.resources li .tag{
+    font-family:'Marcellus',serif;
+    font-size:0.66rem;
+    background:var(--sage);
+    color:#fffdf8;
+    padding:0.2rem 0.55rem;
+    border-radius:999px;
+    white-space:nowrap;
+    letter-spacing:0.04em;
+  }
+
+  .note{
+    font-size:0.88rem;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    padding-top:0.9rem;
+    margin-top:0.5rem;
+    font-style:italic;
+  }
+
+  footer{
+    text-align:center;
+    font-family:'Marcellus',serif;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    color:var(--ink-soft);
+    padding:2.2rem 1rem 3.5rem;
+  }
+
+  html[lang="es"] [data-en], html[lang="en"] [data-es]{display:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    section, nav.tabs button{animation:none; transition:none;}
+  }
+
+  @media (max-width:600px){
+    .cover{border-radius:120px 120px 14px 14px; padding:2.6rem 1.4rem 4.4rem;}
+    .cover h1{font-size:1.9rem;}
+    nav.tabs{margin-top:-2rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+    <button type="button" id="btn-en" class="active" onclick="setLang('en')">English</button>
+    <button type="button" id="btn-es" onclick="setLang('es')">Español</button>
+  </div>
+
+  <svg class="sun" viewBox="0 0 60 60" fill="none" stroke="#fbf3e8" stroke-width="1.4">
+    <circle cx="30" cy="30" r="11"/>
+    <g stroke-linecap="round">
+      <line x1="30" y1="4" x2="30" y2="12"/>
+      <line x1="30" y1="48" x2="30" y2="56"/>
+      <line x1="4" y1="30" x2="12" y2="30"/>
+      <line x1="48" y1="30" x2="56" y2="30"/>
+      <line x1="11" y1="11" x2="17" y2="17"/>
+      <line x1="43" y1="43" x2="49" y2="49"/>
+      <line x1="49" y1="11" x2="43" y2="17"/>
+      <line x1="17" y1="43" x2="11" y2="49"/>
+    </g>
+  </svg>
+
+  <div class="eyebrow">
+    <span data-en>Whittier Middle School &middot; SAISD</span>
+    <span data-es>Escuela Secundaria Whittier &middot; SAISD</span>
+  </div>
+  <h1>
+    <span data-en>Ms. Swanson's 6th Grade ELA</span>
+    <span data-es>Sra. Swanson &mdash; Lengua y Literatura, 6.&ordm; Grado</span>
+  </h1>
+  <p class="sub">
+    <span data-en>Your family's gathering place for homework, resources, and what's happening in class this week.</span>
+    <span data-es>El lugar de encuentro de su familia para tareas, recursos y lo que sucede en clase esta semana.</span>
+  </p>
+
+  <svg class="branch" viewBox="0 0 220 40" fill="none" stroke="#fbf3e8" stroke-width="1.1" stroke-linecap="round">
+    <path d="M10 20 C 60 5, 160 5, 210 20" opacity="0.7"/>
+    <path d="M40 18 q -6 -10 -14 -8" />
+    <path d="M75 13 q -4 -10 3 -15" />
+    <path d="M110 11 q 0 -11 0 -16" />
+    <path d="M145 13 q 4 -10 -3 -15" />
+    <path d="M180 18 q 6 -10 14 -8" />
+    <circle cx="110" cy="20" r="2.2" fill="#fbf3e8" stroke="none"/>
+  </svg>
+</header>
+
+<nav class="tabs" aria-label="Section navigation">
+  <button type="button" data-tab="announcements" class="active" onclick="showTab('announcements')">
+    <span data-en>Announcements</span><span data-es>Avisos</span>
+  </button>
+  <button type="button" data-tab="homework" onclick="showTab('homework')">
+    <span data-en>This Week's Homework</span><span data-es>Tareas de esta Semana</span>
+  </button>
+  <button type="button" data-tab="resources" onclick="showTab('resources')">
+    <span data-en>Resources</span><span data-es>Recursos</span>
+  </button>
+</nav>
+
+<main>
+
+  <section id="announcements" class="active">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4a8a7a" stroke-width="1.4"><path d="M12 2 C 8 7, 8 12, 12 16 C 16 12, 16 7, 12 2 Z"/><line x1="12" y1="16" x2="12" y2="22"/></svg>
+      <span data-en>Announcements</span><span data-es>Avisos</span>
+    </h2>
+
+    <div class="card">
+      <div class="meta"><span data-en>Posted Aug 12</span><span data-es>Publicado el 12 de agosto</span></div>
+      <p>
+        <span data-en><strong>Welcome to 6th grade ELA!</strong> I'm so glad your student is in my class this year. Interactive notebooks stay in the classroom &mdash; students won't need to bring them home. Homework will come through Amplify Solos on the computer instead.</span>
+        <span data-es><strong>&iexcl;Bienvenidos a Lengua y Literatura de 6.&ordm; grado!</strong> Me alegra mucho tener a su hijo/a en mi clase este a&ntilde;o. Los cuadernos interactivos se quedan en el sal&oacute;n de clase &mdash; los estudiantes no necesitar&aacute;n llevarlos a casa. La tarea llegar&aacute; a trav&eacute;s de Amplify Solos en la computadora.</span>
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="meta"><span data-en>Posted Aug 12</span><span data-es>Publicado el 12 de agosto</span></div>
+      <p>
+        <span data-en>Progress updates, behavior notes, and any questions all go through Bloomz &mdash; it's our main way of staying in touch this year. Class code: [add code].</span>
+        <span data-es>Las actualizaciones de progreso, notas de comportamiento y cualquier pregunta pasan por Bloomz &mdash; es nuestra principal forma de comunicaci&oacute;n este a&ntilde;o. C&oacute;digo de clase: [agregar c&oacute;digo].</span>
+      </p>
+    </div>
+
+    <p class="note">
+      <span data-en>Need this page in another language? Use the EN / ES toggle at the top right.</span>
+      <span data-es>&iquest;Necesita esta p&aacute;gina en otro idioma? Use el bot&oacute;n EN / ES en la parte superior derecha.</span>
+    </p>
+  </section>
+
+  <section id="homework">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4a8a7a" stroke-width="1.4"><path d="M4 4 h16 v16 h-16 z" stroke-linejoin="round"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="8" y1="4" x2="8" y2="9"/></svg>
+      <span data-en>This Week's Homework</span><span data-es>Tareas de esta Semana</span>
+    </h2>
+
+    <div class="skill-banner">
+      <div class="meta"><span data-en>This week's TEKS skill</span><span data-es>Habilidad TEKS de esta semana</span></div>
+      <p style="margin:0.3rem 0 0;">
+        <span data-en>Determining theme and analyzing how it develops over the course of a text.</span>
+        <span data-es>Determinar el tema y analizar c&oacute;mo se desarrolla a lo largo de un texto.</span>
+      </p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th><span data-en>Day</span><span data-es>D&iacute;a</span></th>
+          <th><span data-en>Assignment</span><span data-es>Tarea</span></th>
+          <th><span data-en>Due</span><span data-es>Fecha l&iacute;mite</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span data-en>Monday</span><span data-es>Lunes</span></td>
+          <td><span data-en>Amplify Solos, Ch. 3 &mdash; complete on the computer at home</span><span data-es>Amplify Solos, Cap&iacute;tulo 3 &mdash; completar en la computadora en casa</span></td>
+          <td><span data-en>Wed.</span><span data-es>Mi&eacute;rc.</span></td>
+        </tr>
+        <tr>
+          <td><span data-en>Tuesday</span><span data-es>Martes</span></td>
+          <td><span data-en>Read or read along in the Amplify library &mdash; 20 minutes</span><span data-es>Leer o seguir la lectura en la biblioteca de Amplify &mdash; 20 minutos</span></td>
+          <td><span data-en>Wed.</span><span data-es>Mi&eacute;rc.</span></td>
+        </tr>
+        <tr>
+          <td><span data-en>Wednesday</span><span data-es>Mi&eacute;rcoles</span></td>
+          <td><span data-en>Reading log signed by a parent/guardian</span><span data-es>Registro de lectura firmado por un padre/tutor</span></td>
+          <td><span data-en>Thu.</span><span data-es>Jue.</span></td>
+        </tr>
+        <tr>
+          <td><span data-en>Thursday</span><span data-es>Jueves</span></td>
+          <td><span data-en>Amplify Solos, Ch. 4 &mdash; complete on the computer at home</span><span data-es>Amplify Solos, Cap&iacute;tulo 4 &mdash; completar en la computadora en casa</span></td>
+          <td><span data-en>Fri.</span><span data-es>Vie.</span></td>
+        </tr>
+        <tr>
+          <td><span data-en>Friday</span><span data-es>Viernes</span></td>
+          <td><span data-en>Handwriting practice sheet &mdash; return in homework folder Monday</span><span data-es>Hoja de pr&aacute;ctica de escritura a mano &mdash; devolver en la carpeta de tareas el lunes</span></td>
+          <td><span data-en>Mon.</span><span data-es>Lun.</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="note">
+      <span data-en>Each student has a homework folder for carrying handwriting practice sheets to and from home &mdash; please check it weekly.</span>
+      <span data-es>Cada estudiante tiene una carpeta de tareas para llevar las hojas de pr&aacute;ctica de escritura a mano entre la casa y la escuela &mdash; por favor rev&iacute;sela cada semana.</span>
+    </p>
+
+    <p class="note">
+      <span data-en>Homework here is a template &mdash; update it each week with that week's real Amplify Solos assignments and due dates.</span>
+      <span data-es>Esta secci&oacute;n es una plantilla &mdash; actual&iacute;cela cada semana con las tareas reales de Amplify Solos y las fechas l&iacute;mite.</span>
+    </p>
+  </section>
+
+  <section id="resources">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4a8a7a" stroke-width="1.4"><path d="M4 19 C 4 6, 12 6, 12 6 C 12 6, 20 6, 20 19" /><line x1="4" y1="19" x2="20" y2="19"/></svg>
+      <span data-en>Resources</span><span data-es>Recursos</span>
+    </h2>
+    <ul class="resources">
+      <li>
+        <span class="tag" data-en>CURRICULUM</span><span class="tag" data-es>PLAN DE ESTUDIOS</span>
+        <span data-en>Amplify ELA &mdash; our daily curriculum, including Amplify Solos (login sent home in August)</span>
+        <span data-es>Amplify ELA &mdash; nuestro plan de estudios diario, incluyendo Amplify Solos (usuario enviado a casa en agosto)</span>
+      </li>
+      <li>
+        <span class="tag" data-en>READING</span><span class="tag" data-es>LECTURA</span>
+        <span data-en>Amplify library &mdash; students can read or read along as they listen</span>
+        <span data-es>Biblioteca de Amplify &mdash; los estudiantes pueden leer o seguir la lectura mientras escuchan</span>
+      </li>
+      <li>
+        <span class="tag" data-en>COMMUNICATION</span><span class="tag" data-es>COMUNICACI&Oacute;N</span>
+        <span data-en>Bloomz &mdash; class updates and messaging, auto-translated</span>
+        <span data-es>Bloomz &mdash; actualizaciones y mensajes de la clase, con traducci&oacute;n autom&aacute;tica</span>
+      </li>
+      <li>
+        <span class="tag" data-en>READING LOG</span><span class="tag" data-es>REGISTRO DE LECTURA</span>
+        <span data-en>Sent home for a parent/guardian to sign each week</span>
+        <span data-es>Se env&iacute;a a casa para que un padre/tutor lo firme cada semana</span>
+      </li>
+      <li>
+        <span class="tag" data-en>HANDWRITING</span><span class="tag" data-es>ESCRITURA A MANO</span>
+        <span data-en>Practice sheets sent home weekly &mdash; printable at home if a copy is lost</span>
+        <span data-es>Hojas de pr&aacute;ctica enviadas a casa semanalmente &mdash; se pueden imprimir en casa si se pierde una copia</span>
+      </li>
+    </ul>
+    <p class="note">
+      <span data-en>Swap these placeholders for your real links once the site is live.</span>
+      <span data-es>Reemplace estos marcadores con sus enlaces reales cuando el sitio est&eacute; publicado.</span>
+    </p>
+  </section>
+
+
+</main>
+
+<footer>
+  <span data-en>Ms. Swanson's 6th Grade ELA &middot; Whittier Middle School &middot; SAISD</span>
+  <span data-es>Sra. Swanson, Lengua y Literatura 6.&ordm; Grado &middot; Escuela Secundaria Whittier &middot; SAISD</span>
+</footer>
+
+<script>
+  function showTab(id){
+    document.querySelectorAll('main > section').forEach(s => s.classList.toggle('active', s.id === id));
+    document.querySelectorAll('nav.tabs button').forEach(b => b.classList.toggle('active', b.dataset.tab === id));
+  }
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  }
+</script>
+
+</body>
+</html>
