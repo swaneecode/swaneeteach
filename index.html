@@ -37,12 +37,12 @@
 
   .cover{
     position:relative;
-    max-width:760px;
+    max-width:960px;
     margin:2.5rem auto 0;
-    padding:3.4rem 2rem 5.5rem;
+    padding:3.4rem 2.5rem 5.5rem;
     text-align:center;
     background:linear-gradient(160deg,var(--clay) 0%, var(--clay-deep) 78%);
-    border-radius:220px 220px 18px 18px;
+    border-radius:140px 140px 18px 18px;
     color:#fbf3e8;
     overflow:hidden;
   }
@@ -51,7 +51,7 @@
     position:absolute;
     top:22px; left:22px; right:22px; bottom:22px;
     border:1px solid rgba(251,243,232,0.35);
-    border-radius:190px 190px 10px 10px;
+    border-radius:118px 118px 10px 10px;
     pointer-events:none;
   }
   .sun{
@@ -61,7 +61,7 @@
   }
   .lang-toggle{
     position:absolute;
-    top:1.4rem; right:1.4rem;
+    top:1.8rem; right:2.2rem;
     display:flex;
     background:rgba(251,243,232,0.14);
     border:1px solid rgba(251,243,232,0.4);
@@ -117,7 +117,7 @@
     display:flex;
     justify-content:center;
     gap:0.6rem;
-    max-width:760px;
+    max-width:960px;
     margin:-2.6rem auto 0;
     padding:0 1.2rem;
     position:relative;
@@ -145,12 +145,12 @@
   }
 
   main{
-    max-width:760px;
+    max-width:960px;
     margin:2.4rem auto 0;
     background:var(--cream);
     border-radius:18px;
     box-shadow:0 14px 34px rgba(30,80,80,0.14);
-    padding:2.6rem 2.2rem 3rem;
+    padding:2.6rem 3rem 3rem;
     position:relative;
   }
   main::before{
@@ -233,6 +233,29 @@
     border-radius:999px;
     white-space:nowrap;
     letter-spacing:0.04em;
+  }
+  .brand-badge{
+    display:inline-block;
+    width:22px; height:22px;
+    flex:none;
+    border-radius:5px;
+    object-fit:contain;
+    background:#fff;
+    padding:2px;
+    border:1px solid var(--line);
+    vertical-align:middle;
+  }
+  .brand-badge-wide{
+    display:inline-block;
+    height:22px;
+    width:auto;
+    flex:none;
+    border-radius:5px;
+    object-fit:contain;
+    background:#fff;
+    padding:2px 4px;
+    border:1px solid var(--line);
+    vertical-align:middle;
   }
 
   .note{
@@ -322,6 +345,12 @@
   <button type="button" data-tab="resources" onclick="showTab('resources')">
     <span data-en>Resources</span><span data-es>Recursos</span>
   </button>
+  <button type="button" data-tab="printables" onclick="showTab('printables')">
+    <span data-en>Printables</span><span data-es>Imprimibles</span>
+  </button>
+  <button type="button" data-tab="supplies" onclick="showTab('supplies')">
+    <span data-en>Supplies</span><span data-es>&Uacute;tiles Escolares</span>
+  </button>
 </nav>
 
 <main>
@@ -335,8 +364,8 @@
     <div class="card">
       <div class="meta"><span data-en>Posted Aug 12</span><span data-es>Publicado el 12 de agosto</span></div>
       <p>
-        <span data-en><strong>Welcome to 6th grade ELA!</strong> I'm so glad your student is in my class this year. Interactive notebooks stay in the classroom &mdash; students won't need to bring them home. Homework will come through Amplify Solos on the computer instead.</span>
-        <span data-es><strong>&iexcl;Bienvenidos a Lengua y Literatura de 6.&ordm; grado!</strong> Me alegra mucho tener a su hijo/a en mi clase este a&ntilde;o. Los cuadernos interactivos se quedan en el sal&oacute;n de clase &mdash; los estudiantes no necesitar&aacute;n llevarlos a casa. La tarea llegar&aacute; a trav&eacute;s de Amplify Solos en la computadora.</span>
+        <span data-en><strong>Welcome to 6th grade ELA!</strong> I'm so glad your student is in my class this year. In class, students will build an interactive notebook that becomes their learning portfolio throughout the year &mdash; it stays at school. Homework will be independent and rarely need your help: Amplify Solos for reading comprehension, weekly reading logs, Khan Academy for grammar practice, and handwriting practice sheets. Homework begins the second week of school.</span>
+        <span data-es><strong>&iexcl;Bienvenidos a Lengua y Literatura de 6.&ordm; grado!</strong> Me alegra mucho tener a su hijo/a en mi clase este a&ntilde;o. En clase, los estudiantes construir&aacute;n un cuaderno interactivo que se convertir&aacute; en su portafolio de aprendizaje durante todo el a&ntilde;o &mdash; se queda en la escuela. La tarea ser&aacute; independiente y rara vez necesitar&aacute; su ayuda: Amplify Solos para comprensi&oacute;n de lectura, registros de lectura semanales, Khan Academy para pr&aacute;ctica de gram&aacute;tica y hojas de pr&aacute;ctica de escritura a mano. La tarea comienza la segunda semana de clases.</span>
       </p>
     </div>
 
@@ -364,12 +393,12 @@
       <div class="meta"><span data-en>This week's learning</span><span data-es>El aprendizaje de esta semana</span></div>
       <p style="margin:0.3rem 0 0;">
         <span data-en>Classroom rules, policies, and procedures.</span>
-        <span data-es>Reglas, políticas y procedimientos del salón de clases.</span>
+        <span data-es>Reglas, pol&iacute;ticas y procedimientos del sal&oacute;n de clases.</span>
       </p>
       <p style="margin:0.6rem 0 0;">
         <span data-en>Setting up interactive notebooks, and setting goals.</span>
-        <span data-es>Preparación de los cuadernos interactivos y establecimiento de metas.</span>
-  </p>
+        <span data-es>Preparaci&oacute;n de los cuadernos interactivos y establecimiento de metas.</span>
+      </p>
     </div>
 
     <table>
@@ -382,41 +411,26 @@
       </thead>
       <tbody>
         <tr>
-          <td><span data-en>Monday</span><span data-es>Lunes</span></td>
-          <td><span data-en>Amplify Solos, Ch. 3 &mdash; complete on the computer at home</span><span data-es>Amplify Solos, Cap&iacute;tulo 3 &mdash; completar en la computadora en casa</span></td>
-          <td><span data-en>Wed.</span><span data-es>Mi&eacute;rc.</span></td>
+          <td><span data-en>Wednesday, Aug. 12</span><span data-es>Mi&eacute;rcoles, 12 de agosto</span></td>
+          <td><span data-en>No homework assigned</span><span data-es>No se asign&oacute; tarea</span></td>
+          <td>&mdash;</td>
         </tr>
         <tr>
-          <td><span data-en>Tuesday</span><span data-es>Martes</span></td>
-          <td><span data-en>Read or read along in the Amplify library &mdash; 20 minutes</span><span data-es>Leer o seguir la lectura en la biblioteca de Amplify &mdash; 20 minutos</span></td>
-          <td><span data-en>Wed.</span><span data-es>Mi&eacute;rc.</span></td>
+          <td><span data-en>Thursday, Aug. 13</span><span data-es>Jueves, 13 de agosto</span></td>
+          <td><span data-en>No homework assigned</span><span data-es>No se asign&oacute; tarea</span></td>
+          <td>&mdash;</td>
         </tr>
         <tr>
-          <td><span data-en>Wednesday</span><span data-es>Mi&eacute;rcoles</span></td>
-          <td><span data-en>Reading log signed by a parent/guardian</span><span data-es>Registro de lectura firmado por un padre/tutor</span></td>
-          <td><span data-en>Thu.</span><span data-es>Jue.</span></td>
-        </tr>
-        <tr>
-          <td><span data-en>Thursday</span><span data-es>Jueves</span></td>
-          <td><span data-en>Amplify Solos, Ch. 4 &mdash; complete on the computer at home</span><span data-es>Amplify Solos, Cap&iacute;tulo 4 &mdash; completar en la computadora en casa</span></td>
-          <td><span data-en>Fri.</span><span data-es>Vie.</span></td>
-        </tr>
-        <tr>
-          <td><span data-en>Friday</span><span data-es>Viernes</span></td>
-          <td><span data-en>Handwriting practice sheet &mdash; return in homework folder Monday</span><span data-es>Hoja de pr&aacute;ctica de escritura a mano &mdash; devolver en la carpeta de tareas el lunes</span></td>
-          <td><span data-en>Mon.</span><span data-es>Lun.</span></td>
+          <td><span data-en>Friday, Aug. 14</span><span data-es>Viernes, 14 de agosto</span></td>
+          <td><span data-en>No homework assigned</span><span data-es>No se asign&oacute; tarea</span></td>
+          <td>&mdash;</td>
         </tr>
       </tbody>
     </table>
 
     <p class="note">
-      <span data-en>Each student has a homework folder for carrying handwriting practice sheets to and from home &mdash; please check it weekly.</span>
-      <span data-es>Cada estudiante tiene una carpeta de tareas para llevar las hojas de pr&aacute;ctica de escritura a mano entre la casa y la escuela &mdash; por favor rev&iacute;sela cada semana.</span>
-    </p>
-
-    <p class="note">
-      <span data-en>Homework here is a template &mdash; update it each week with that week's real Amplify Solos assignments and due dates.</span>
-      <span data-es>Esta secci&oacute;n es una plantilla &mdash; actual&iacute;cela cada semana con las tareas reales de Amplify Solos y las fechas l&iacute;mite.</span>
+      <span data-en><strong>Important Note:</strong> Students will use their homework folder to carry any practice/study sheets to and from home. Interactive notebooks will remain in class until the end of the semester.</span>
+      <span data-es><strong>Nota importante:</strong> Los estudiantes usar&aacute;n su carpeta de tareas para llevar hojas de pr&aacute;ctica/estudio entre la casa y la escuela. Los cuadernos interactivos permanecer&aacute;n en el sal&oacute;n de clases hasta el final del semestre.</span>
     </p>
   </section>
 
@@ -428,33 +442,87 @@
     <ul class="resources">
       <li>
         <span class="tag" data-en>CURRICULUM</span><span class="tag" data-es>PLAN DE ESTUDIOS</span>
-        <span data-en>Amplify ELA &mdash; our daily curriculum, including Amplify Solos (login sent home in August)</span>
-        <span data-es>Amplify ELA &mdash; nuestro plan de estudios diario, incluyendo Amplify Solos (usuario enviado a casa en agosto)</span>
+        <img class="brand-badge-wide" src="amplify-wordmark.png" alt="Amplify">
+        <span data-en>Amplify ELA &mdash; found in your student's ClassLink on their laptop</span>
+        <span data-es>Amplify ELA &mdash; se encuentra en ClassLink de su estudiante en su computadora port&aacute;til</span>
       </li>
       <li>
         <span class="tag" data-en>READING</span><span class="tag" data-es>LECTURA</span>
+        <img class="brand-badge-wide" src="amplify-wordmark.png" alt="Amplify">
         <span data-en>Amplify library &mdash; students can read or read along as they listen</span>
         <span data-es>Biblioteca de Amplify &mdash; los estudiantes pueden leer o seguir la lectura mientras escuchan</span>
       </li>
       <li>
+        <span class="tag" data-en>GRAMMAR</span><span class="tag" data-es>GRAM&Aacute;TICA</span>
+        <img class="brand-badge" src="khan-academy-icon.png" alt="Khan Academy">
+        <span data-en>Khan Academy &mdash; found in your student's ClassLink on their laptop</span>
+        <span data-es>Khan Academy &mdash; se encuentra en ClassLink de su estudiante en su computadora port&aacute;til</span>
+      </li>
+      <li>
         <span class="tag" data-en>COMMUNICATION</span><span class="tag" data-es>COMUNICACI&Oacute;N</span>
-        <span data-en>Bloomz &mdash; class updates and messaging, auto-translated</span>
-        <span data-es>Bloomz &mdash; actualizaciones y mensajes de la clase, con traducci&oacute;n autom&aacute;tica</span>
+        <img class="brand-badge" src="bloomz-icon.png" alt="Bloomz">
+        <span data-en>Bloomz &mdash; student academic progress and/or concerns; behavioral concerns</span>
+        <span data-es>Bloomz &mdash; progreso acad&eacute;mico del estudiante y/o inquietudes; inquietudes de comportamiento</span>
+      </li>
+      <li>
+        <span class="tag" data-en>GRADES</span><span class="tag" data-es>CALIFICACIONES</span>
+        <span data-en>Frontline &mdash; please make sure you have an email on file to receive grade reports for your student. Check your spam folder for emails from Frontline.</span>
+        <span data-es>Frontline &mdash; por favor aseg&uacute;rese de tener un correo electr&oacute;nico registrado para recibir los informes de calificaciones de su estudiante. Revise su carpeta de correo no deseado (spam) para los correos de Frontline.</span>
       </li>
       <li>
         <span class="tag" data-en>READING LOG</span><span class="tag" data-es>REGISTRO DE LECTURA</span>
-        <span data-en>Sent home for a parent/guardian to sign each week</span>
-        <span data-es>Se env&iacute;a a casa para que un padre/tutor lo firme cada semana</span>
+        <span data-en>Must be signed by a parent/guardian each day</span>
+        <span data-es>Debe ser firmado por un padre/tutor cada d&iacute;a</span>
       </li>
       <li>
         <span class="tag" data-en>HANDWRITING</span><span class="tag" data-es>ESCRITURA A MANO</span>
-        <span data-en>Practice sheets sent home weekly &mdash; printable at home if a copy is lost</span>
-        <span data-es>Hojas de pr&aacute;ctica enviadas a casa semanalmente &mdash; se pueden imprimir en casa si se pierde una copia</span>
+        <span data-en>Practice sheets sent home weekly &mdash; printable at home if a copy is lost (see Printables tab above)</span>
+        <span data-es>Hojas de pr&aacute;ctica enviadas a casa semanalmente &mdash; se pueden imprimir en casa si se pierde una copia (ver la pesta&ntilde;a de Imprimibles arriba)</span>
       </li>
     </ul>
     <p class="note">
       <span data-en>Swap these placeholders for your real links once the site is live.</span>
       <span data-es>Reemplace estos marcadores con sus enlaces reales cuando el sitio est&eacute; publicado.</span>
+    </p>
+  </section>
+
+  <section id="printables">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4a8a7a" stroke-width="1.4"><path d="M6 9 V4 h12 v5" /><path d="M6 18 h12 v4 h-12 z" /><path d="M4 9 h16 v7 h-4 v-3 h-8 v3 h-4 z" /></svg>
+      <span data-en>Printables</span><span data-es>Imprimibles</span>
+    </h2>
+    <p class="note" style="border-top:none; padding-top:0; font-style:normal;">
+      <span data-en>Printable practice sheets, including handwriting practice, will be posted here as they become available. Check back for updates.</span>
+      <span data-es>Las hojas de pr&aacute;ctica imprimibles, incluida la pr&aacute;ctica de escritura a mano, se publicar&aacute;n aqu&iacute; a medida que est&eacute;n disponibles. Vuelva a consultar para ver actualizaciones.</span>
+    </p>
+  </section>
+
+  <section id="supplies">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4a8a7a" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="8" y1="4" x2="8" y2="20"/><line x1="4" y1="9" x2="20" y2="9"/></svg>
+      <span data-en>Supplies</span><span data-es>&Uacute;tiles Escolares</span>
+    </h2>
+    <p class="note" style="border-top:none; padding-top:0; font-style:normal;">
+      <span data-en>This list is a list of supplies students will need to begin the first semester of class. Some of these supplies, such as pencils, may need to be replenished throughout the school year. Families are responsible for the replenishment of supplies throughout the year.</span>
+      <span data-es>Esta es la lista de &uacute;tiles que los estudiantes necesitar&aacute;n para comenzar el primer semestre de clases. Algunos de estos &uacute;tiles, como los l&aacute;pices, pueden necesitar reponerse durante el a&ntilde;o escolar. Las familias son responsables de reponer los &uacute;tiles durante el a&ntilde;o.</span>
+    </p>
+    <ul class="resources">
+      <li><span data-en>Composition Notebooks (2)</span><span data-es>Cuadernos de composici&oacute;n (2)</span></li>
+      <li><span data-en>Glue Sticks (pack of 6)</span><span data-es>Barras de peg&aacute;mento (paquete de 6)</span></li>
+      <li><span data-en>Scissors (1)</span><span data-es>Tijeras (1)</span></li>
+      <li><span data-en>College ruled loose leaf notebook paper (1 pack of 100 or more)</span><span data-es>Papel de cuaderno de hojas sueltas, rayado universitario (1 paquete de 100 o m&aacute;s)</span></li>
+      <li><span data-en>Colored pencils (1 pack of 12 or more)</span><span data-es>L&aacute;pices de colores (1 paquete de 12 o m&aacute;s)</span></li>
+      <li><span data-en>Pencil sharpener (1)</span><span data-es>Sacapuntas (1)</span></li>
+      <li><span data-en>Sticky notes (1 pack or more, any colors)</span><span data-es>Notas adhesivas (1 paquete o m&aacute;s, cualquier color)</span></li>
+      <li><span data-en>Erasers (pack of 2 or more)</span><span data-es>Borradores (paquete de 2 o m&aacute;s)</span></li>
+      <li><span data-en>Highlighters (pack of 4 or more, multi-colored)</span><span data-es>Marcadores resaltadores (paquete de 4 o m&aacute;s, multicolor)</span></li>
+      <li><span data-en>Dry erase markers (pack of 2, any color)</span><span data-es>Marcadores de pizarra blanca (paquete de 2, cualquier color)</span></li>
+      <li><span data-en>Pens (pack of 4 or more, any color)</span><span data-es>Bol&iacute;grafos (paquete de 4 o m&aacute;s, cualquier color)</span></li>
+      <li><span data-en>Pencils (pack of 12 or more)</span><span data-es>L&aacute;pices (paquete de 12 o m&aacute;s)</span></li>
+    </ul>
+    <p class="note">
+      <span data-en><strong>Important:</strong> Supplies are the responsibility of the student. If a student fails to bring supplies to class, I will communicate this to you through Bloomz. If a student cannot complete classwork due to not having supplies, the classwork will be graded at 0% until the student is able to complete it. If your student ever needs supplies, they may request them at the school office.</span>
+      <span data-es><strong>Importante:</strong> Los &uacute;tiles escolares son responsabilidad del estudiante. Si un estudiante no trae sus &uacute;tiles a clase, me comunicar&eacute; con usted a trav&eacute;s de Bloomz. Si un estudiante no puede completar el trabajo de clase por no tener los &uacute;tiles necesarios, el trabajo se calificar&aacute; con un 0% hasta que pueda completarlo. Si su estudiante necesita &uacute;tiles en alg&uacute;n momento, puede solicitarlos en la oficina de la escuela.</span>
     </p>
   </section>
 
